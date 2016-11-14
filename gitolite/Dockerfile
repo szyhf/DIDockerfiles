@@ -1,6 +1,6 @@
 FROM centos:latest
 
-MAINTAINER Back Yu <szyhf@163.com>
+MAINTAINER Back Yu <yhfszb@gmail.com>
 
 RUN yum -y update && \
 	yum -y install openssh-server && \
