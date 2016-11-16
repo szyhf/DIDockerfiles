@@ -1,6 +1,6 @@
 FROM elasticsearch:latest
 
-MAINTAINER Back Yu <szyhf@163.com>
+MAINTAINER Back Yu <yhfszb@gamil.com>
 
 # 装head插件
 RUN /usr/share/elasticsearch/bin/plugin install mobz/elasticsearch-head

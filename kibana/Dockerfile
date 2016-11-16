@@ -1,6 +1,6 @@
 FROM kibana:latest
 
-MAINTAINER Back Yu <szyhf@163.com>
+MAINTAINER Back Yu <yhfszb@gamil.com>
 
 RUN mkdir /opt/kibana/downloads/
 

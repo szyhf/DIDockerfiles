@@ -1,6 +1,6 @@
 FROM centos:latest
 
-MAINTAINER Back Yu <szyhf@163.com>
+MAINTAINER Back Yu <yhfszb@gamil.com>
 
 VOLUME /downloads
 
