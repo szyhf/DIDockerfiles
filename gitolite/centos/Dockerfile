@@ -34,6 +34,7 @@ RUN chmod +x /init
 # Addind volume to repositories directory
 VOLUME /home/git/repositories
 VOLUME /etc/ssh
+VOLUME /home/git/.ssh
 
 # ENTRYPOINT ["/init", "/usr/sbin/sshd", "-D"]
 EXPOSE 22

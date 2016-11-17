@@ -46,6 +46,7 @@ RUN rm -f /etc/ssh/ssh_host_*
 # Addind volume to repositories directory
 VOLUME /home/git/repositories
 VOLUME /etc/ssh
+VOLUME /home/git/.ssh
 
 ADD ./init.sh /init
 RUN chmod +x /init
