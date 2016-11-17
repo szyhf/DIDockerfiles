@@ -35,5 +35,5 @@ RUN chmod +x /init
 VOLUME /home/git/repositories
 VOLUME /etc/ssh
 
-ENTRYPOINT ["/init", "/usr/sbin/sshd", "-D"]
+# ENTRYPOINT ["/init", "/usr/sbin/sshd", "-D"]
 EXPOSE 22
