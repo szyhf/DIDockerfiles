@@ -10,6 +10,7 @@ RUN yum -y update && \
 	yum -y autoremove
 
 RUN sed -i 's/^AcceptEnv LANG LC_\*$//g' /etc/ssh/sshd_config
+ENV LC_ALL=en_US.UTF-8
 RUN mkdir /var/run/sshd
 
 RUN adduser --system --user-group --shell /bin/sh git
