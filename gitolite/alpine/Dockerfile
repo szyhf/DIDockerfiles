@@ -12,15 +12,15 @@ RUN apk update \
 	&& apk add perl \
 	&& rm  -rf /tmp/* /var/cache/apk/*
 
-RUN cd /home/git; git clone -b v3.6.6 --depth 1 git://github.com/sitaramc/gitolite;
-
-#make sure we get fresh keys
-RUN rm -rf /etc/ssh/ssh_host_rsa_key /etc/ssh/ssh_host_dsa_key
-
 # mkdir
 RUN mkdir -p /home/git/bin \
 	&& mkdir -p /home/git/.ssh \
 	&& mkdir -p /var/run/sshd
+
+RUN cd /home/git; git clone -b v3.6.6 --depth 1 git://github.com/sitaramc/gitolite;
+
+#make sure we get fresh keys
+RUN rm -rf /etc/ssh/ssh_host_rsa_key /etc/ssh/ssh_host_dsa_key
 
 # add USER
 RUN addgroup git \
