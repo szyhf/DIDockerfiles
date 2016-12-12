@@ -27,6 +27,4 @@ COPY init.sh /init.sh
 
 RUN chmod u+x /init.sh
 
-EXPOSE 80 443
-
 CMD ["/init.sh"]
