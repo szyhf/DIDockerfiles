@@ -6,21 +6,21 @@ MAINTAINER Back Yu <yhfszb@gamil.com>
 # ADD http://mirrors.aliyun.com/repo/Centos-7.repo /etc/yum.repos.d/CentOS-Base.repo
 
 RUN yum update -y \
-	&& yum upgrade -y \
-	&& yum install -y wget tar \
-	&& yum autoremove \
-	&& yum clean
+        && yum upgrade -y \
+        && yum install -y wget \
+        && yum autoremove -y \
+        && yum clean all
 
 ENV BITCOIN_VERSION=0.13.1
 
 RUN wget https://bitcoin.org/bin/bitcoin-core-${BITCOIN_VERSION}/bitcoin-${BITCOIN_VERSION}-x86_64-linux-gnu.tar.gz
 
-RUN tar xvf bitcoin-0.13.1-x86_64-linux-gnu.tar.gz
+RUN tar xzvf /bitcoin-0.13.1-x86_64-linux-gnu.tar.gz
 
-RUN mv bitcoin-0.13.1/bin/* /usr/local/bin/
+RUN mv /bitcoin-${BITCOIN_VERSION}/bin/* /usr/local/bin/
 
-RUN rm -rf bitcoin-0.13.1-x86_64-linux-gnu.tar.gz
-RUN rm -rf bitcoin-0.13.1
+RUN rm /bitcoin-${BITCOIN_VERSION}-x86_64-linux-gnu.tar.gz -rf
+RUN rm bitcoin-${BITCOIN_VERSION} -rf
 
 RUN mkdir /root/.bitcoin
 
