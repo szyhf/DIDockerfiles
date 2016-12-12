@@ -5,8 +5,7 @@ MAINTAINER Back Yu <yhfszb@gamil.com>
 # If mirrors.
 # ADD http://mirrors.aliyun.com/repo/Centos-7.repo /etc/yum.repos.d/CentOS-Base.repo
 
-RUN yum makecache \
-	&& yum update -y \
+RUN yum update -y \
 	&& yum upgrade -y \
 	&& yum install -y wget tar \
 	&& yum autoremove \
