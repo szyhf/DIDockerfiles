@@ -2,7 +2,8 @@ FROM centos:latest
 
 MAINTAINER Back Yu <yhfszb@gamil.com>
 
-ADD http://mirrors.aliyun.com/repo/Centos-7.repo /etc/yum.repos.d/CentOS-Base.repo
+# If mirrors.
+# ADD http://mirrors.aliyun.com/repo/Centos-7.repo /etc/yum.repos.d/CentOS-Base.repo
 
 RUN yum makecache \
 	&& yum update -y \
