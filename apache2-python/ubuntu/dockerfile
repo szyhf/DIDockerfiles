@@ -23,6 +23,10 @@ RUN mkdir -p /root/.pip \
 RUN mkdir /var/web/ \
 	&& a2enmod ssl
 
-COPY init.sh init.sh
+COPY init.sh /init.sh
 
-CMD sh /init.sh
+RUN chmod u+x /init.sh
+
+EXPOSE 80 443
+
+CMD ["/init.sh"]
