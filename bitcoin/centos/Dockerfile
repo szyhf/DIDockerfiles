@@ -13,9 +13,8 @@ RUN yum update -y \
 
 ENV BITCOIN_VERSION=0.13.1
 
-RUN wget https://bitcoin.org/bin/bitcoin-core-${BITCOIN_VERSION}/bitcoin-${BITCOIN_VERSION}-x86_64-linux-gnu.tar.gz
-
-RUN tar xzvf /bitcoin-0.13.1-x86_64-linux-gnu.tar.gz \
+RUN wget https://bitcoin.org/bin/bitcoin-core-${BITCOIN_VERSION}/bitcoin-${BITCOIN_VERSION}-x86_64-linux-gnu.tar.gz \
+	&& tar xzvf /bitcoin-0.13.1-x86_64-linux-gnu.tar.gz \
 	&& mv /bitcoin-${BITCOIN_VERSION}/bin/* /usr/local/bin/ \
 	&& rm /bitcoin-${BITCOIN_VERSION}-x86_64-linux-gnu.tar.gz -rf \
 	&& rm bitcoin-${BITCOIN_VERSION} -rf \
