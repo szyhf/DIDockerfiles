@@ -18,16 +18,14 @@ RUN apk update && apk add git
 RUN mkdir -p /go_dep/src /go_third/src
 
 ENV GOPATH=/go_third
-RUN	go get -v -d github.com/golang/crypto
-RUN	go get -v -d github.com/golang/benchmarks
-RUN	go get -v -d github.com/golang/debug
-RUN	go get -v -d github.com/golang/image
-RUN	go get -v -d github.com/golang/mobile
-RUN	go get -v -d github.com/golang/net
-RUN	go get -v -d github.com/golang/sys
-RUN	go get -v -d github.com/golang/text
-RUN	go get -v -d github.com/golang/tools
-
-RUN ln -s /go_third/src/github.com/golang /go_third/src/golang.org/x
+RUN	go get -v -d -fix golang.org/x/crypto/bcrypt
+RUN	go get -v -d -fix golang.org/x/benchmarks/http
+RUN	go get -v -d -fix golang.org/x/image/bmp
+RUN	go get -v -d -fix golang.org/x/mobile/app
+RUN	go get -v -d -fix golang.org/x/net/html
+RUN	go get -v -d -fix golang.org/x/sys/unix
+RUN	go get -v -d -fix golang.org/x/tools/blog
+RUN	go get -v -d -fix golang.org/x/debug
+RUN	go get -v -d -fix golang.org/x/text
 
 ENV GOPATH=/go_dep:/go:/go_third
