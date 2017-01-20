@@ -1,14 +1,5 @@
 FROM golang:1.7.4-alpine3.5
 
-# 挂载3个目录
-# 1. 默认的本地项目目录
-# 2. 本地项目依赖的其他项目
-# 3. golang.org的三方库目录（这个项目太常用了）
-
-VOLUME /go/src
-VOLUME /go_dep/src
-VOLUME /go_third/src
-
 # RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 # RUN echo /etc/hosts >> "151.101.72.249 github.global.ssl.fastly.net"
 # RUN echo /etc/hosts >> "151.101.100.133 assets-cdn.github.com"
@@ -17,6 +8,7 @@ RUN apk update && apk add git
 
 RUN mkdir -p /go_dep/src /go_third/src
 
+# golang.org的三方库目录（这个项目太常用了）
 ENV GOPATH=/go_third
 RUN	go get -v -d -fix golang.org/x/crypto/bcrypt
 RUN	go get -v -d -fix golang.org/x/benchmarks/http
@@ -29,3 +21,10 @@ RUN	go get -v -d -fix golang.org/x/debug
 RUN	go get -v -d -fix golang.org/x/text
 
 ENV GOPATH=/go_dep:/go:/go_third
+
+# 挂载2个目录
+# 1. 默认的本地项目目录
+# 2. 本地项目依赖的其他项目
+
+VOLUME /go/src
+VOLUME /go_dep/src
