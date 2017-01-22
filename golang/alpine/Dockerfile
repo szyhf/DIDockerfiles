@@ -21,6 +21,7 @@ RUN	go get -v -d -fix golang.org/x/debug
 RUN	go get -v -d -fix golang.org/x/text
 
 ENV GOPATH=/go_dep:/go:/go_third
+ENV GOBIN=/go/bin
 
 # 挂载2个目录
 # 1. 默认的本地项目目录
