@@ -3,7 +3,7 @@ FROM centos:7.3.1611
 ENV GO_VERSION=1.7.4
 ENV GO_OS=linux-amd64
 
-ADD http://mirrors.aliyun.com/repo/Centos-7.repo /etc/yum.repos.d/CentOS-Base.repo
+# ADD http://mirrors.aliyun.com/repo/Centos-7.repo /etc/yum.repos.d/CentOS-Base.repo
 
 RUN yum update -y \
     && yum upgrade -y \
