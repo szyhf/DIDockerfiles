@@ -1,5 +1,7 @@
 FROM centos:7.3.1611
 
+MAINTAINER Back Yu <yhfszb@gamil.com>
+
 ENV GO_VERSION=1.7.4
 ENV GO_OS=linux-amd64
 

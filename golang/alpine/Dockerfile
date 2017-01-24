@@ -1,5 +1,7 @@
 FROM golang:1.7.4-alpine3.5
 
+MAINTAINER Back Yu <yhfszb@gamil.com>
+
 # RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 # RUN echo /etc/hosts >> "151.101.72.249 github.global.ssl.fastly.net"
 # RUN echo /etc/hosts >> "151.101.100.133 assets-cdn.github.com"
