@@ -8,10 +8,10 @@ ENV GO_OS=linux-amd64
 # ADD http://mirrors.aliyun.com/repo/Centos-7.repo /etc/yum.repos.d/CentOS-Base.repo
 
 RUN yum update -y \
-    && yum upgrade -y \
 	&& yum install wget git -y\
 	&& wget -q https://storage.googleapis.com/golang/go${GO_VERSION}.${GO_OS}.tar.gz \
 	&& tar xzvf go${GO_VERSION}.${GO_OS}.tar.gz \
+	&& rm -rf go${GO_VERSION}.${GO_OS}.tar.gz \
 	&& mv go /usr/local/ \
 	&& yum remove wget -y \
 	&& yum autoremove -y \
