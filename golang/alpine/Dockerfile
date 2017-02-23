@@ -1,4 +1,4 @@
-FROM golang:1.7.4-alpine3.5
+FROM golang:1.8.0-alpine3.5
 
 MAINTAINER Back Yu <yhfszb@gamil.com>
 
