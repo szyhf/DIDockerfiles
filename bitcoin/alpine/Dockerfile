@@ -4,7 +4,7 @@ MAINTAINER Back Yu <yhfszb@gamil.com>
 
 # RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
-ENV BITCOIN_VERSION=0.13.2
+ENV BITCOIN_VERSION=0.14.1
 ENV GLIBC_VERSION=2.23-r3
 
 RUN apk update \
