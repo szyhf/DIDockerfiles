@@ -31,9 +31,9 @@ ADD config /kafka/config
 ADD start.sh /start.sh
 
 # Set up a user to run Kafka
-RUN groupadd kafka && \
-  useradd -d /kafka -g kafka -s /bin/false kafka && \
-  chown -R kafka:kafka /kafka /data /logs
+RUN addgroup kafka && \
+    adduser -h /kafka -G kafka -s /bin/false -D kafka && \
+    chown -R kafka:kafka /kafka /data /logs
 USER kafka
 ENV PATH /kafka/bin:$PATH
 WORKDIR /kafka
