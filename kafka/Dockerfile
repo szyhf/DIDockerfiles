@@ -19,9 +19,9 @@ ADD https://dist.apache.org/repos/dist/release/kafka/${KAFKA_VERSION}/${KAFKA_RE
 WORKDIR /tmp
 
 # Check artifact digest integrity
-RUN echo VERIFY CHECKSUM: && \
-  gpg --print-md MD5 ${KAFKA_RELEASE_ARCHIVE} 2>/dev/null && \
-  cat ${KAFKA_RELEASE_ARCHIVE}.md5
+# RUN echo VERIFY CHECKSUM: && \
+#   gpg --print-md MD5 ${KAFKA_RELEASE_ARCHIVE} 2>/dev/null && \
+#   cat ${KAFKA_RELEASE_ARCHIVE}.md5
 
 # Install Kafka to /kafka
 RUN tar -zx -C /kafka --strip-components=1 -f ${KAFKA_RELEASE_ARCHIVE} && \
