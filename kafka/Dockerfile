@@ -10,7 +10,7 @@ ENV KAFKA_RELEASE_ARCHIVE kafka_${KAFKA_SCALA_VERSION}-${KAFKA_VERSION}.tgz
 RUN mkdir /kafka /data /logs
 
 RUN apk update \
-	&& apk --no-cache add wget ca-certificates \
+	&& apk --no-cache add wget ca-certificates
 
 # Download Kafka binary distribution
 ADD http://www.us.apache.org/dist/kafka/${KAFKA_VERSION}/${KAFKA_RELEASE_ARCHIVE} /tmp/
