@@ -8,32 +8,22 @@ ENV KAFKA_VERSION=0.10.2.0 KAFKA_SCALA_VERSION=2.12 JMX_PORT=7203
 ENV KAFKA_RELEASE_ARCHIVE kafka_${KAFKA_SCALA_VERSION}-${KAFKA_VERSION}.tgz
 
 RUN mkdir /kafka /data /logs
-
-RUN apk update \
-	&& apk --no-cache add wget ca-certificates
-
-# Download Kafka binary distribution
-ADD http://www.us.apache.org/dist/kafka/${KAFKA_VERSION}/${KAFKA_RELEASE_ARCHIVE} /tmp/
-ADD https://dist.apache.org/repos/dist/release/kafka/${KAFKA_VERSION}/${KAFKA_RELEASE_ARCHIVE}.md5 /tmp/
-
-WORKDIR /tmp
-
-# Check artifact digest integrity
-# RUN echo VERIFY CHECKSUM: && \
-#   gpg --print-md MD5 ${KAFKA_RELEASE_ARCHIVE} 2>/dev/null && \
-#   cat ${KAFKA_RELEASE_ARCHIVE}.md5
-
-# Install Kafka to /kafka
-RUN tar -zx -C /kafka --strip-components=1 -f ${KAFKA_RELEASE_ARCHIVE} && \
-  rm -rf kafka_*
-
 ADD config /kafka/config
 ADD start.sh /start.sh
 
-# Set up a user to run Kafka
-RUN addgroup kafka && \
-    adduser -h /kafka -G kafka -s /bin/false -D kafka && \
-    chown -R kafka:kafka /kafka /data /logs
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+
+RUN apk update \
+	&& apk --no-cache add wget ca-certificates bash \
+	&& wget --quiet http://www.us.apache.org/dist/kafka/${KAFKA_VERSION}/${KAFKA_RELEASE_ARCHIVE} \
+	&& tar -zx -C /kafka --strip-components=1 -f /${KAFKA_RELEASE_ARCHIVE} && \
+  		rm -rf /kafka_* \
+	&& addgroup kafka \
+	&& adduser -h /kafka -G kafka -s /bin/false -D kafka \
+	&& chown -R kafka:kafka /kafka /data /logs /start.sh \
+	&& chmod u+x /start.sh \
+	&& apk del wget
+
 USER kafka
 ENV PATH /kafka/bin:$PATH
 WORKDIR /kafka
