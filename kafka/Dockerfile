@@ -11,7 +11,7 @@ RUN mkdir /kafka /data /logs
 ADD config /kafka/config
 ADD start.sh /start.sh
 
-# RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 RUN apk update \
 	&& apk --no-cache add wget ca-certificates bash \
