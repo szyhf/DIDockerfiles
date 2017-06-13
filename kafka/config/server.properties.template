@@ -308,7 +308,7 @@ log.cleaner.io.buffer.load.factor={{LOG_CLEANER_IO_BUFFER_LOAD_FACTOR}}
 log.cleaner.io.buffer.size={{LOG_CLEANER_IO_BUFFER_SIZE}}
 
 # The log cleaner will be throttled so that the sum of its read and write i/o will be less than this value on average
-# double 1.7976931348623157E308	"" medium
+# double 1.7976931348623157E308 "" medium
 log.cleaner.io.max.bytes.per.second={{LOG_CLEANER_IO_MAX_BYTES_PER_SECOND}}
 
 # The minimum ratio of dirty log to total log for a log to eligible for cleaning
@@ -336,7 +336,7 @@ log.index.interval.bytes={{LOG_INDEX_INTERVAL_BYTES}}
 log.index.size.max.bytes={{LOG_INDEX_SIZE_MAX_BYTES}}
 
 # Specify the message format version the broker will use to append messages to the logs. The value should be a valid ApiVersion. Some examples are: 0.8.2, 0.9.0.0, 0.10.0, check ApiVersion for more details. By setting a particular message format version, the user is certifying that all the existing messages on disk are smaller or equal than the specified version. Setting this value incorrectly will cause consumers with older versions to break as they will receive messages with a format that they don't understand.
-# string 0.10.2-IV0	"" medium
+# string 0.10.2-IV0 "" medium
 log.message.format.version={{LOG_MESSAGE_FORMAT_VERSION}}
 
 # The maximum difference allowed between the timestamp when a broker receives a message and the timestamp specified in the message. If log.message.timestamp.type=CreateTime, a message will be rejected if the difference in timestamp exceeds this threshold. This configuration is ignored if log.message.timestamp.type=LogAppendTime.
@@ -545,14 +545,19 @@ zookeeper.sync.time.ms={{ZOOKEEPER_SYNC_TIME_MS}}
 # DEPRECATED
 # ============================================================
 # only used when `advertised.listeners` or `listeners` are not set. Use `advertised.listeners` instead. Hostname to publish to ZooKeeper for clients to use. In IaaS environments, this may need to be different from the interface to which the broker binds. If this is not set, it will use the value for `host.name` if configured. Otherwise it will use the value returned from java.net.InetAddress.getCanonicalHostName().
-advertised.host.name={{ADVERTISED_HOST_NAME}}
+# advertised.host.name={{ADVERTISED_HOST_NAME}}
+
 # only used when `advertised.listeners` or `listeners` are not set. Use `advertised.listeners` instead. The port to publish to ZooKeeper for clients to use. In IaaS environments, this may need to be different from the port to which the broker binds. If this is not set, it will publish the same port that the broker binds to.
-advertised.port={{ADVERTISED_PORT}}
+# advertised.port={{ADVERTISED_PORT}}
+
 # only used when `listeners` is not set. Use `listeners` instead. hostname of broker. If this is set, it will only bind to this address. If this is not set, it will bind to all interfaces
-host.name={{HOST_NAME}}
+# host.name={{HOST_NAME}}
+
 # only used when `listeners` is not set. Use `listeners` instead. the port to listen and accept connections on
-port={{PORT}}
+# port={{PORT}}
+
 # Used only when dynamic default quotas are not configured for or in Zookeeper. Any consumer distinguished by clientId/consumer group will get throttled if it fetches more bytes than this value per-second
-quota.consumer.default={{QUOTA_CONSUMER_DEFAULT}}
+# quota.consumer.default={{QUOTA_CONSUMER_DEFAULT}}
+
 # Used only when dynamic default quotas are not configured for , or in Zookeeper. Any producer distinguished by clientId will get throttled if it produces more bytes than this value per-second
-quota.producer.default={{QUOTA_PRODUCER_DEFAULT}}
+# quota.producer.default={{QUOTA_PRODUCER_DEFAULT}}
