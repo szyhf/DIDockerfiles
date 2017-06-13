@@ -542,14 +542,17 @@ ssl.secure.random.implementation={{SSL_SECURE_RANDOM_IMPLEMENTATION}}
 # int 2000 "" low
 zookeeper.sync.time.ms={{ZOOKEEPER_SYNC_TIME_MS}}
 
-
 # DEPRECATED
+# ============================================================
+# only used when `advertised.listeners` or `listeners` are not set. Use `advertised.listeners` instead. Hostname to publish to ZooKeeper for clients to use. In IaaS environments, this may need to be different from the interface to which the broker binds. If this is not set, it will use the value for `host.name` if configured. Otherwise it will use the value returned from java.net.InetAddress.getCanonicalHostName().
 advertised.host.name={{ADVERTISED_HOST_NAME}}
+# only used when `advertised.listeners` or `listeners` are not set. Use `advertised.listeners` instead. The port to publish to ZooKeeper for clients to use. In IaaS environments, this may need to be different from the port to which the broker binds. If this is not set, it will publish the same port that the broker binds to.
 advertised.port={{ADVERTISED_PORT}}
+# only used when `listeners` is not set. Use `listeners` instead. hostname of broker. If this is set, it will only bind to this address. If this is not set, it will bind to all interfaces
 host.name={{HOST_NAME}}
+# only used when `listeners` is not set. Use `listeners` instead. the port to listen and accept connections on
 port={{PORT}}
+# Used only when dynamic default quotas are not configured for or in Zookeeper. Any consumer distinguished by clientId/consumer group will get throttled if it fetches more bytes than this value per-second
 quota.consumer.default={{QUOTA_CONSUMER_DEFAULT}}
+# Used only when dynamic default quotas are not configured for , or in Zookeeper. Any producer distinguished by clientId will get throttled if it produces more bytes than this value per-second
 quota.producer.default={{QUOTA_PRODUCER_DEFAULT}}
-
-
-

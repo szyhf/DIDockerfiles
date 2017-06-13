@@ -182,5 +182,37 @@ if [ -z $KAFKA_JMX_OPTS ]; then
     export KAFKA_JMX_OPTS
 fi
 
+if [ -z $KAFKA_HEAP_OPTS ]; then
+	KAFKA_HEAP_OPTS = ""
+
+	# 初始堆大小 物理内存的1/64(<1GB)
+	if [ -n $JAVA_HEAP_XMS]; then
+		KAFKA_HEAP_OPTS="$KAFKA_HEAP_OPTS -Xms${JAVA_HEAP_XMS}"
+	fi
+
+	# 最大堆大小 物理内存的1/4(<1GB)
+	if [ -n $JAVA_HEAP_XMX]; then
+		KAFKA_HEAP_OPTS="$KAFKA_HEAP_OPTS -Xmx${JAVA_HEAP_XMX}"
+	fi
+	# 设置持久代(perm gen)初始值
+	if [ -n $JAVA_HEAP_PERM_SIZE]; then
+		KAFKA_HEAP_OPTS="$KAFKA_HEAP_OPTS -XX:PermSize=${JAVA_HEAP_PERM_SIZE}"
+	fi
+	# 设置持久代最大值
+	if [ -n $JAVA_HEAP_MAX_PERM_SIZE]; then
+		KAFKA_HEAP_OPTS="$KAFKA_HEAP_OPTS -XX:MaxPermSize=${JAVA_HEAP_MAX_PERM_SIZE}"
+	# 每次年轻代垃圾回收的最长时间(最大暂停时间)
+	if [ -n $JAVA_HEAP_MAX_GC_PAUSE_MILLIS]; then
+		KAFKA_HEAP_OPTS="$KAFKA_HEAP_OPTS -XX:MaxGCPauseMillis=${JAVA_HEAP_MAX_GC_PAUSE_MILLIS}"
+	fi
+
+	if [ -n $JAVA_HEAP_INITIATING_HEAP_OCCUPANCY_PERCENT]; then
+		KAFKA_HEAP_OPTS="$KAFKA_HEAP_OPTS -XX:InitiatingHeapOccupancyPercent=${JAVA_HEAP_INITIATING_HEAP_OCCUPANCY_PERCENT}"
+	fi
+
+	KAFKA_HEAP_OPTS="$KAFKA_HEAP_OPTS -XX:+UseG1GC"
+	export KAFKA_HEAP_OPTS
+fi
+
 echo "Starting kafka"
 exec /kafka/bin/kafka-server-start.sh /kafka/config/server.properties
