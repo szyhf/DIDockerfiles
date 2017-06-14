@@ -1,6 +1,6 @@
 # Zookeeper host string
 # string "" "" high
-{{ZOOKEEPER_CONNECT_}}zookeeper.connect={{ZOOKEEPER_CONNECT}}
+{{ZOOKEEPER_CONNECT_}}{{ZOOKEEPER_CONNECT_}}zookeeper.connect={{ZOOKEEPER_CONNECT}}
 
 # Listeners to publish to ZooKeeper for clients to use, if different than the listeners above. In IaaS environments, this may need to be different from the interface to which the broker binds. If this is not set, the value for `listeners` will be used.
 # string null "" high
