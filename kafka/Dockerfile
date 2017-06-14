@@ -8,8 +8,6 @@ ENV KAFKA_VERSION=0.10.2.1 KAFKA_SCALA_VERSION=2.12 JMX_PORT=7203
 ENV KAFKA_RELEASE_ARCHIVE kafka_${KAFKA_SCALA_VERSION}-${KAFKA_VERSION}.tgz
 
 RUN mkdir /kafka /data /logs
-ADD config /kafka/config
-ADD start.sh /start.sh
 
 # RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
@@ -24,6 +22,9 @@ RUN apk update \
 	&& chmod u+x /start.sh \
 	&& apk del wget \
 	&& rm /kafka/config/server.properties
+
+ADD config /kafka/config
+ADD start.sh /start.sh
 
 USER kafka
 ENV PATH /kafka/bin:$PATH
