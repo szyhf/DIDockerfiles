@@ -22,7 +22,8 @@ RUN apk update \
 	&& adduser -h /kafka -G kafka -s /bin/false -D kafka \
 	&& chown -R kafka:kafka /kafka /data /logs /start.sh \
 	&& chmod u+x /start.sh \
-	&& apk del wget
+	&& apk del wget \
+	&& rm /kafka/config/server.properties
 
 USER kafka
 ENV PATH /kafka/bin:$PATH
