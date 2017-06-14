@@ -21,10 +21,10 @@ KAFKA提供的官方参数，默认设置为`-XX:+UseG1GC`作为回收，可以�
 可以通过自定义`$KAFKA_JMX_OPTS`实现对JMX的配置，默认设置如下：
 
 ```txt
--Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.rmi.port=$JMX_PORT -Djava.rmi.server.hostname=${JAVA_RMI_SERVER_HOSTNAME:-localhost}
+-Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.rmi.port=$JMX_PORT -Djava.rmi.server.hostname=${JAVA_RMI_SERVER_HOSTNAME:-$HOSTNAME}
 ```
 
-其中默认的`$JMX_PORT`是`7203`，`$JAVA_RMI_SERVER_HOSTNAME`是`localhost`。
+其中默认的`$JMX_PORT`是`7203`；`$JAVA_RMI_SERVER_HOSTNAME`是`$HOSTNAME`，由容器自动生成。
 
 ## docker-compose
 
