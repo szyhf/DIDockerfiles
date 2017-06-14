@@ -53,3 +53,19 @@ services:
         environment:
             ZK_HOSTS: "zookeeper:2181"
 ```
+
+## volume
+
+### config
+
+配置文件目录为`/kafka/config`，有需要的话可以直接挂载，如果已经挂载了`config/server.properties`文件，则相关的环境变量都会被忽略。
+
+### data
+
+数据存储目录为`/data`。
+
+### log
+
+日志目录会受到`server.properties`里边的配置影响，看文档自己挂载……
+
+> 默认路径是`/tmp/kafka-logs`
