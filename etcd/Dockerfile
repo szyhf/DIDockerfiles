@@ -26,4 +26,5 @@ RUN apk update \
 
 WORKDIR /var/etcd/
 
+EXPOSE 2379 2380
 CMD ["/usr/local/bin/etcd"]
