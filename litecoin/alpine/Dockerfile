@@ -5,7 +5,7 @@ MAINTAINER Back Yu <yhfszb@gamil.com>
 # RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 ENV LITECOIN_VERSION=0.13.2
-ENV GLIBC_VERSION=2.23-r3
+ENV GLIBC_VERSION=2.25-r0
 
 RUN apk update \
 	&& apk --no-cache add wget ca-certificates \
