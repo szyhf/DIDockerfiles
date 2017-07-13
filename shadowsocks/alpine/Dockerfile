@@ -14,7 +14,7 @@ RUN apk update \
 	&& wget https://github.com/shadowsocks/shadowsocks-go/releases/download/${SC_VERSION}/shadowsocks-local-linux64-${SC_VERSION}.gz \
 	&& tar xzvf shadowsocks-server.tar.gz \
 	&& mv shadowsocks-server /shadowsocks \
-	&& tar xzvf shadowsocks-local-linux64-${SC_VERSION}.gz \
+	&& gzip -d shadowsocks-local-linux64-${SC_VERSION}.gz \
 	&& mv shadowsocks-local-linux64-${SC_VERSION} /shadowsocks/shadowsocks-local \
 	&& chmod u+x /shadowsocks/shadowsocks-server \
 	&& chmod u+x /shadowsocks/shadowsocks-local \
