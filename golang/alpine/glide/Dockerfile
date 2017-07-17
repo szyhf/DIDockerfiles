@@ -7,6 +7,8 @@ MAINTAINER Back Yu <yhfszb@gamil.com>
 ENV GO_VERSION=1.8.3
 ENV GO_OS=linux-amd64
 ENV PATH=$PATH:/usr/local/go/bin
+ENV GOPATH=/root/go
+ENV GLIDE_HOME=/root/.glide
 
 RUN apk update \
 	&& apk --no-cache add wget ca-certificates curl git \
@@ -17,9 +19,3 @@ RUN apk update \
 	&& mkdir -p /root/go/src /root/go/bin /root/go/pkg /root/.glide \
 	&& curl https://glide.sh/get | sh \
 	&& apk del wget ca-certificates curl
-
-ENV GOPATH=/root/go
-
-ENV GLIDE_HOME=/root/.glide
-
-
