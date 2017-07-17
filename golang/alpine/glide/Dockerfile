@@ -9,14 +9,14 @@ ENV GO_OS=linux-amd64
 ENV PATH=$PATH:/usr/local/go/bin
 
 RUN apk update \
-	&& apk --no-cache add wget ca-certificates libcurl git \
+	&& apk --no-cache add wget ca-certificates curl git \
 	&& wget --quiet https://storage.googleapis.com/golang/go${GO_VERSION}.${GO_OS}.tar.gz \
 	&& mkdir -p /usr/local/go \
 	&& tar -C /usr/local -xzf go${GO_VERSION}.${GO_OS}.tar.gz \
 	&& rm -rf go${GO_VERSION}.${GO_OS}.tar.gz \
+	&& mkdir -p /root/go/src /root/go/bin /root/go/pkg /root/.glide \
 	&& curl https://glide.sh/get | sh \
-	&& apk del wget ca-certificates \
-	&& mkdir -p /root/go/src /root/.glide
+	&& apk del wget ca-certificates curl
 
 ENV GOPATH=/root/go
 
