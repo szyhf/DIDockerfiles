@@ -1,4 +1,4 @@
-FROM szyhf/alpine-glibc
+FROM registry.cn-shenzhen.aliyuncs.com/szyhf/golang-glide
 
 MAINTAINER Back Yu <yhfszb@gamil.com>
 
