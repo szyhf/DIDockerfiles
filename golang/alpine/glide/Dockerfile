@@ -16,9 +16,9 @@ RUN apk update \
 	&& rm -rf go${GO_VERSION}.${GO_OS}.tar.gz \
 	&& curl https://glide.sh/get | sh \
 	&& apk del wget ca-certificates \
-	&& mkdir -p /root/go/go_dep/src /root/go/go_third/src /root/go/go/src /root/.glide
+	&& mkdir -p /root/go/src /root/.glide
 
-ENV GOPATH=/root/go/go_third/src:/root/go/go_dep/src:/root/go/go/src
+ENV GOPATH=/root/go/
 
 ENV GLIDE_HOME=/root/.glide
 
