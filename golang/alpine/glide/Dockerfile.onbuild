@@ -1,0 +1,3 @@
+FROM szyhf/golang-glide
+
+MAINTAINER Back Yu <yhfszb@gamil.com>
