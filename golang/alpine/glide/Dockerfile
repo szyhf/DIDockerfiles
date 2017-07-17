@@ -18,7 +18,7 @@ RUN apk update \
 	&& apk del wget ca-certificates \
 	&& mkdir -p /root/go/src /root/.glide
 
-ENV GOPATH=/root/go/
+ENV GOPATH=/root/go
 
 ENV GLIDE_HOME=/root/.glide
 
