@@ -1,0 +1,10 @@
+{
+    "server":"192.168.123.321",
+    "server_port":1952,
+    "local_port":1080,
+    "password":"your-passwd",
+	"method": "aes-256-cfb",
+	"auth": false,
+	"port_password":"",
+	"timeout":600
+}
