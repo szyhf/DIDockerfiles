@@ -17,4 +17,5 @@ RUN apk update \
 	&& tar -C /usr/local -xzf go${GO_VERSION}.${GO_OS}.tar.gz \
 	&& rm -rf go${GO_VERSION}.${GO_OS}.tar.gz \
 	&& mkdir -p /root/go/src /root/go/bin /root/go/pkg /root/.glide \
-	&& go get -v github.com/Masterminds/glide
+	&& go get -v github.com/Masterminds/glide \
+	&& chsh -s /bin/bash
