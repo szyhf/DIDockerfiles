@@ -25,8 +25,8 @@ RUN apk --no-cache add python libsodium wget \
 	&& cp -R $WORK/shadowsocksr-$BRANCH/shadowsocks $WORK/shadowsocks \
 	&& rm -rf $WORK/shadowsocksr-$BRANCH
 
-COPY user-config.json $WORK/ssr/user-config.json
-COPY usermysql.json $WORK/ssr/usermysql.json
+COPY user-config.json $WORK/shadowsocks/user-config.json
+COPY usermysql.json $WORK/shadowsocks/usermysql.json
 
 WORKDIR $WORK/shadowsocks
 
