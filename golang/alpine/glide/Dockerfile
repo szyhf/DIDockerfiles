@@ -2,7 +2,7 @@ FROM szyhf/alpine-glibc
 
 MAINTAINER Back Yu <yhfszb@gamil.com>
 
-# RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 ENV GO_VERSION=1.9
 ENV GO_OS=linux-amd64
@@ -11,11 +11,10 @@ ENV PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 ENV GLIDE_HOME=/root/.glide
 
 RUN apk update \
-	&& apk --no-cache add wget ca-certificates curl git openssh bash \
+	&& apk --no-cache add wget ca-certificates curl git openssh \
 	&& wget --quiet https://storage.googleapis.com/golang/go${GO_VERSION}.${GO_OS}.tar.gz \
 	&& mkdir -p /usr/local/go \
 	&& tar -C /usr/local -xzf go${GO_VERSION}.${GO_OS}.tar.gz \
 	&& rm -rf go${GO_VERSION}.${GO_OS}.tar.gz \
 	&& mkdir -p /root/go/src /root/go/bin /root/go/pkg /root/.glide \
-	&& go get -v github.com/Masterminds/glide \
-	&& chsh -s /bin/bash
+	&& go get -v github.com/Masterminds/glide
