@@ -2,7 +2,7 @@ FROM centos:7.3.1611
 
 MAINTAINER Back Yu <yhfszb@gamil.com>
 
-ENV GO_VERSION=1.8.3
+ENV GO_VERSION=1.9.2
 ENV GO_OS=linux-amd64
 
 # ADD http://mirrors.aliyun.com/repo/Centos-7.repo /etc/yum.repos.d/CentOS-Base.repo

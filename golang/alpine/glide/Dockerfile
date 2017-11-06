@@ -4,7 +4,7 @@ MAINTAINER Back Yu <yhfszb@gamil.com>
 
 # RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
-ENV GO_VERSION=1.9
+ENV GO_VERSION=1.9.2
 ENV GO_OS=linux-amd64
 ENV GOPATH=/root/go
 ENV PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
