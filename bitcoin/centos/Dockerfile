@@ -5,7 +5,7 @@ MAINTAINER Back Yu <yhfszb@gamil.com>
 # If mirrors.
 # ADD http://mirrors.aliyun.com/repo/Centos-7.repo /etc/yum.repos.d/CentOS-Base.repo
 
-ENV BITCOIN_VERSION=0.13.1
+ENV BITCOIN_VERSION=0.15.1
 
 RUN yum update -y \
         && yum upgrade -y \
