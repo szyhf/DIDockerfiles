@@ -8,7 +8,6 @@ ENV BITCOIN_VERSION=0.15.0.1
 ENV BITCOIN_DIR_VERSION=0.15.0
 ENV GLIBC_VERSION=2.26-r0
 
-ADD bitcoin-0.15.0.1-x86_64-linux-gnu.tar.gz /
 
 RUN apk update \
 	&& apk --no-cache add wget ca-certificates \
