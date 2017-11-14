@@ -1,11 +1,14 @@
 FROM alpine:latest
 
-MAINTAINER Back Yu <yhfszb@gamil.com>
+LABEL maintainer="yhfszb@gamil.com"
 
-# RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 ENV BITCOIN_VERSION=0.15.0.1
+ENV BITCOIN_DIR_VERSION=0.15.0
 ENV GLIBC_VERSION=2.26-r0
+
+ADD bitcoin-0.15.0.1-x86_64-linux-gnu.tar.gz /
 
 RUN apk update \
 	&& apk --no-cache add wget ca-certificates \
@@ -18,8 +21,8 @@ RUN apk update \
 	&& tar xzvf /bitcoin-${BITCOIN_VERSION}-x86_64-linux-gnu.tar.gz \
 	&& mkdir /root/.bitcoin \
 	&& apk del wget ca-certificates \
-	&& mv /bitcoin-${BITCOIN_VERSION}/bin/* /usr/local/bin/ \
-	&& rm -rf /bitcoin-${BITCOIN_VERSION}/ \
+	&& mv /bitcoin-${BITCOIN_DIR_VERSION}/bin/* /usr/local/bin/ \
+	&& rm -rf /bitcoin-${BITCOIN_VBITCOIN_DIR_VERSIONRSION}/ \
 	&& rm -rf /bitcoin-${BITCOIN_VERSION}-x86_64-linux-gnu.tar.gz \
 	&& rm -rf /glibc-${GLIBC_VERSION}.apk \
 	&& rm -rf /glibc-bin-${GLIBC_VERSION}.apk
