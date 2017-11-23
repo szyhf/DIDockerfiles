@@ -11,7 +11,7 @@ ENV PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 ENV GLIDE_HOME=/root/.glide
 
 RUN apk update \
-	&& apk --no-cache add wget ca-certificates curl git openssh \
+	&& apk --no-cache add wget ca-certificates curl git openssh gcc musl-dev \
 	&& wget --quiet https://storage.googleapis.com/golang/go${GO_VERSION}.${GO_OS}.tar.gz \
 	&& mkdir -p /usr/local/go \
 	&& tar -C /usr/local -xzf go${GO_VERSION}.${GO_OS}.tar.gz \
