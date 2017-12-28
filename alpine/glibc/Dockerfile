@@ -1,10 +1,10 @@
 FROM alpine:3.6
 
-MAINTAINER Back Yu <yhfszb@gamil.com>
+LABEL MAINTAINER="Back Yu <yhfszb@gamil.com>"
 
 # RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
-ENV GLIBC_VERSION=2.25-r0
+ENV GLIBC_VERSION=2.26-r0
 
 RUN apk update \
 	&& apk --no-cache add wget ca-certificates \
@@ -13,6 +13,6 @@ RUN apk update \
 	&& wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-bin-${GLIBC_VERSION}.apk \
  	&& apk --no-cache add glibc-${GLIBC_VERSION}.apk \
 	&& apk --no-cache add glibc-bin-${GLIBC_VERSION}.apk \
-	&& apk del wget ca-certificates \
+	&& apk del wget \
 	&& rm -rf /glibc-${GLIBC_VERSION}.apk \
 	&& rm -rf /glibc-bin-${GLIBC_VERSION}.apk
