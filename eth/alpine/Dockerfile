@@ -1,10 +1,10 @@
 FROM szyhf/alpine-glibc
 
-MAINTAINER Back Yu <yhfszb@gamil.com>
+LABEL MAINTAINER="Back Yu <yhfszb@gamil.com>"
 
 # RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
-ENV ETH_VERSION=1.6.5-cf87713d
+ENV ETH_VERSION=1.8.1-1e67410e
 
 RUN apk update \
 	&& apk --no-cache add wget ca-certificates \
