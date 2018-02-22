@@ -1,10 +1,10 @@
 FROM alpine:3.5
 
-MAINTAINER Back Yu <yhfszb@gamil.com>
+LABEL MAINTAINER="Back Yu <yhfszb@gamil.com>"
 
 # RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
-ENV ETCD_VERSION=v3.2.5
+ENV ETCD_VERSION=v3.3.1
 ENV ETCDCTL_API=3
 
 # Alpine Linux doesn't use pam, which means that there is no /etc/nsswitch.conf,
