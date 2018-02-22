@@ -4,8 +4,8 @@ LABEL maintainer="yhfszb@gamil.com"
 
 # RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
-ENV BITCOIN_VERSION=0.15.0.1
-ENV BITCOIN_DIR_VERSION=0.15.0
+ENV BITCOIN_VERSION=0.15.1
+ENV BITCOIN_DIR_VERSION=0.15.1
 ENV GLIBC_VERSION=2.26-r0
 
 
