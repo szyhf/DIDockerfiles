@@ -1,6 +1,6 @@
-FROM golang:1.9-alpine3.6
+FROM golang:apline
 
-MAINTAINER Back Yu <yhfszb@gamil.com>
+LABEL MAINTAINER="Back Yu <yhfszb@gamil.com>"
 
 # RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 # RUN echo /etc/hosts >> "151.101.72.249 github.global.ssl.fastly.net"
