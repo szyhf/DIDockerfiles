@@ -1,4 +1,4 @@
-FROM golang:apline
+FROM golang:alpine
 
 LABEL MAINTAINER="Back Yu <yhfszb@gamil.com>"
 
