@@ -17,9 +17,7 @@ RUN apk update \
 	&& apk del wget ca-certificates \
 	&& mv /bitcoin-${BITCOIN_DIR_VERSION}/bin/* /usr/local/bin/ \
 	&& rm -rf /bitcoin-${BITCOIN_VBITCOIN_DIR_VERSIONRSION}/ \
-	&& rm -rf /bitcoin-${BITCOIN_VERSION}-x86_64-linux-gnu.tar.gz \
-	&& rm -rf /glibc-${GLIBC_VERSION}.apk \
-	&& rm -rf /glibc-bin-${GLIBC_VERSION}.apk
+	&& rm -rf /bitcoin-${BITCOIN_VERSION}-x86_64-linux-gnu.tar.gz
 
 EXPOSE 8333 8332
 CMD bitcoind
