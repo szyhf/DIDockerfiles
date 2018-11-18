@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-MAINTAINER Back Yu <yhfszb@gamil.com>
+LABEL MAINTAINER="Back Yu <yhfszb@gamil.com>"
 
 ENV SS_VERSION=1.2.1
 ENV SC_VERSION=1.1.5
@@ -22,6 +22,6 @@ RUN apk update \
 	&& rm -rf shadowsocks-server.tar.gz \
 	&& export PATH=$PATH:/shadowsocks/
 
-COPY shadowsocks.json /shadowsocks/config.json
+COPY config.json /shadowsocks/config.json
 
 WORKDIR /shadowsocks
