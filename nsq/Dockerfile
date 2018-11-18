@@ -5,7 +5,7 @@ MAINTAINER Back Yu <yhfszb@gamil.com>
 # RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 ENV NSQ_VERSION=1.0.0-compat
-ENV GO_VERSION=1.8
+ENV GO_VERSION=1.11.2
 
 RUN apk update \
 	&& apk --no-cache add wget ca-certificates \
