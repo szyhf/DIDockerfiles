@@ -1,3 +1,3 @@
 FROM quay.io/gitlab/gitlab-runner-docker-cleanup:latest
 
-MAINTAINER Back Yu <yhfszb@gamil.com>
+LABEL MAINTAINER="Back Yu <yhfszb@gamil.com>"

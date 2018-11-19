@@ -8,7 +8,8 @@ ENV SC_VERSION=1.1.5
 # RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 RUN apk update \
-	&& apk --no-cache add wget ca-certificates \
+	&& apk --no-cache add wget ca-certificates tzdata \
+	&& cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 	&& mkdir -p /shadowsocks \
 	&& wget https://github.com/shadowsocks/shadowsocks-go/releases/download/${SS_VERSION}/shadowsocks-server.tar.gz \
 	&& wget https://github.com/shadowsocks/shadowsocks-go/releases/download/${SC_VERSION}/shadowsocks-local-linux64-${SC_VERSION}.gz \
@@ -20,7 +21,8 @@ RUN apk update \
 	&& chmod u+x /shadowsocks/shadowsocks-local \
 	&& rm -rf shadowsocks-local-linux64-${SC_VERSION}.gz \
 	&& rm -rf shadowsocks-server.tar.gz \
-	&& export PATH=$PATH:/shadowsocks/
+	&& export PATH=$PATH:/shadowsocks/ \
+	&& apk del tzdata
 
 COPY config.json /shadowsocks/config.json
 

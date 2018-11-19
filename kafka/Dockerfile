@@ -1,7 +1,7 @@
 FROM fabric8/java-alpine-openjdk8-jdk
 # update by: https://github.com/sheepkiller/kafka-manager-docker/tree/alpine
 
-MAINTAINER Back Yu <yhfszb@gamil.com>
+LABEL MAINTAINER="Back Yu <yhfszb@gamil.com>"
 
 # The Scala 2.11 build is currently recommended by the project.
 ENV KAFKA_VERSION=0.10.2.1 KAFKA_SCALA_VERSION=2.12 JMX_PORT=7203

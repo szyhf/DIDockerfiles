@@ -1,6 +1,6 @@
 FROM kibana:latest
 
-MAINTAINER Back Yu <yhfszb@gamil.com>
+LABEL MAINTAINER="Back Yu <yhfszb@gamil.com>"
 
 RUN mkdir -p /opt/kibana/downloads/
 

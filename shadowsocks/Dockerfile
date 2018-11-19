@@ -1,6 +1,6 @@
-FROM centos:latest
+FROM alpine:latest
 
-MAINTAINER Back Yu <yhfszb@gamil.com>
+LABEL MAINTAINER="Back Yu <yhfszb@gamil.com>"
 
 RUN yum -y update
 

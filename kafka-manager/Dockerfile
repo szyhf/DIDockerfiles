@@ -1,7 +1,7 @@
 FROM anapsix/alpine-java:jdk8
 # update by: https://github.com/sheepkiller/kafka-manager-docker/tree/alpine
 
-MAINTAINER Back Yu <yhfszb@gamil.com>
+LABEL MAINTAINER="Back Yu <yhfszb@gamil.com>"
 
 ENV JAVA_MAJOR=8 \
     JAVA_UPDATE=77 \
