@@ -10,7 +10,10 @@ LABEL MAINTAINER="Back Yu <yhfszb@gamil.com>"
 
 RUN apk update
 
-RUN apk add py-pip
+RUN apk add py-pip tzdata \
+	&& cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+	&& echo 'Asia/Shanghai' >  /etc/timezone \
+	&& apk del tzdata
 
 RUN pip install pip --upgrade
 
