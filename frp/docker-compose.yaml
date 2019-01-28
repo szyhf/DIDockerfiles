@@ -1,0 +1,9 @@
+version: "3"
+services:
+    frp:
+        image:
+            szyhf/frp:latest
+        volumes:
+            # 运行的是server模式还是client模式由配置文件决定。
+            # 优先跑server模式。
+            - $PWD/conf.d:/frp/conf.d
