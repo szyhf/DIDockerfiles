@@ -6,8 +6,10 @@ LABEL MAINTAINER="Back Yu <yhfszb@gamil.com>"
 
 RUN apt-get update \
 	&& DEBIAN_FRONTEND=noninteractive apt-get -y install tzdata \
-	&& ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+	&& rm -rf /etc/localtime \
+	&& cp /usr/share/zoneinfo/PRC /etc/localtime \
 	&& echo 'Asia/Shanghai' >  /etc/timezone \
-	&& dpkg-reconfigure -f noninteractive tzdata \
+	&& apt-get -y remove tzdata \
 	&& apt-get -y autoremove \
-	&& apt-get -y clean
+	&& apt-get -y clean \
+	&& rm -rf /var/lib/apt/lists/*
