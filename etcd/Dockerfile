@@ -2,7 +2,7 @@ FROM gcr.io/etcd-development/etcd:v3.4.3
 
 LABEL MAINTAINER="Back Yu <yhfszb@gamil.com>"
 
-# RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+ENV ETCDCTL_API=3
 
 RUN apt-get update \
 	&& DEBIAN_FRONTEND=noninteractive apt-get -y install tzdata \
