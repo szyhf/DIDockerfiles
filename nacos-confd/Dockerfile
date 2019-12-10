@@ -1,18 +1,18 @@
 FROM golang:alpine as builder
 
-ARG CONFD_VER=0.19.2
+ARG CONFD_VER=0.21.0
 
-WORKDIR /go/src/github.com/kelseyhightower
-RUN wget -q https://github.com/nacos-group/nacos-confd/archive/v${CONFD_VER}.tar.gz \
+WORKDIR /go/src/github.com/szyhf
+RUN wget -q https://github.com/szyhf/go-nacos-confd/archive/v${CONFD_VER}.tar.gz \
     && tar -xf v${CONFD_VER}.tar.gz \
 	&& rm -rf v${CONFD_VER}.tar.gz \
-	&& mv nacos-confd-${CONFD_VER} confd \
-	&& cd confd \
+	&& mv go-nacos-confd-${CONFD_VER} go-nacos-confd \
+	&& cd go-nacos-confd \
 	&& go build -o nacos-confd
 
 FROM szyhf/alpine-glibc:latest
 
-COPY --from=0 /go/src/github.com/kelseyhightower/confd/nacos-confd /
+COPY --from=0 /go/src/github.com/szyhf/go-nacos-confd/nacos-confd /
 
 RUN chmod u+x /nacos-confd \
 	&& mkdir -p /etc/confd/conf.d \
