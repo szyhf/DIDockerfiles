@@ -1,0 +1,8 @@
+version: "3"
+services:
+  gh-ost:
+    image: szyhf/gh-ost:latest
+    command:
+      [
+        "--help"
+      ]
