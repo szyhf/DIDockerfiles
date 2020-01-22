@@ -2,7 +2,7 @@ FROM golang:alpine as builder
 
 WORKDIR /go/src/github.com/github/gh-ost
 
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+# RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 RUN apk add gcc musl-dev \
 	&& wget -q https://github.com/github/gh-ost/archive/master.zip \
