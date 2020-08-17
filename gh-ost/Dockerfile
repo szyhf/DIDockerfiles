@@ -4,11 +4,13 @@ WORKDIR /go/src/github.com/github/gh-ost
 
 # RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
+ARG VERSION=1.0.49
+
 RUN apk add gcc musl-dev \
-	&& wget -q https://github.com/github/gh-ost/archive/master.zip \
-    && unzip master.zip \
-	&& rm -rf master.zip \
-	&& mv gh-ost-master/* /go/src/github.com/github/gh-ost \
+	&& wget -q https://github.com/github/gh-ost/archive/v${VERSION}.zip \
+    && unzip v${VERSION}.zip \
+	&& rm -rf v${VERSION}.zip \
+	&& mv gh-ost-${VERSION}/* /go/src/github.com/github/gh-ost \
 	&& cd go/cmd/gh-ost/ \
 	&& go build -o gh-ost
 
