@@ -1,0 +1,13 @@
+version: "3.6"
+services:
+  dns:
+    image: coredns/coredns:1.8.0
+    ports:
+      - "53:53"
+      - "53:53/udp"
+    volumes:
+      - "${PWD}/dns/conf:/root/coredns/conf:ro"
+    command:
+      - "-conf=/root/coredns/conf/Corefile"
+      # - "-help"
+      # - "-plugins"

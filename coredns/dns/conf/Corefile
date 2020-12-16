@@ -1,0 +1,16 @@
+. {
+	chaos CoreDNS-001 info@coredns.io
+	errors
+	loop
+	debug
+	reload 10s
+	forward . /etc/resolv.conf
+
+	hosts /root/coredns/conf/hero.cn.hosts {
+		fallthrough
+
+		ttl 30
+		no_reverse
+		reload 10s
+	}
+}

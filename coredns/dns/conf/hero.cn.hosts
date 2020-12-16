@@ -1,0 +1,44 @@
+127.0.0.1 hero.local
+
+# AndrCN正式服
+192.168.0.152 littlehero-vpc.andr.cn.prod.game.local
+192.168.0.162 littlehero-vpc.andr.cn.prod.chat.local
+
+# IOS CN正式服
+
+# ====== Hero-LJ-CN-Dev ======
+
+# AndrCN测试服（渠道体验服）
+192.168.0.136 littlehero-vpc.andr.cn.chan.dev.game.local
+192.168.0.136 littlehero-vpc.andr.cn.chan.dev.chat.local
+192.168.0.136 littlehero-vpc.andr.cn.chan.dev.login.local
+
+# AndrCN测试服
+192.168.0.136 littlehero-vpc.andr.cn.dev.game.local
+192.168.0.136 littlehero-vpc.andr.cn.dev.chat.local
+192.168.0.136 littlehero-vpc.andr.cn.dev.login.local
+
+# AndrCN提审服
+192.168.0.136 littlehero-vpc.andr.cn.pre.game.local
+192.168.0.136 littlehero-vpc.andr.cn.pre.chat.local
+192.168.0.136 littlehero-vpc.andr.cn.pre.login.local
+
+# AndrCN修正服
+192.168.0.136 littlehero-vpc.andr.cn.fix.game.local
+192.168.0.136 littlehero-vpc.andr.cn.fix.chat.local
+192.168.0.136 littlehero-vpc.andr.cn.fix.login.local
+
+# IOS CN测试服
+192.168.0.136 littlehero-vpc.ios.cn.dev.game.local
+192.168.0.136 littlehero-vpc.ios.cn.dev.chat.local
+192.168.0.136 littlehero-vpc.ios.cn.dev.login.local
+
+# IOS CN提审服
+192.168.0.136 littlehero-vpc.ios.cn.pre.game.local
+192.168.0.136 littlehero-vpc.ios.cn.pre.chat.local
+192.168.0.136 littlehero-vpc.ios.cn.pre.login.local
+
+# IOS CN修正服
+192.168.0.136 littlehero-vpc.ios.cn.fix.game.local
+192.168.0.136 littlehero-vpc.ios.cn.fix.chat.local
+192.168.0.136 littlehero-vpc.ios.cn.fix.login.local
