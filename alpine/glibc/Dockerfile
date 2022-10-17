@@ -4,7 +4,7 @@ LABEL MAINTAINER="Back Yu <yhfszb@gamil.com>"
 
 # RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
-ENV GLIBC_VERSION=2.31-r0
+ENV GLIBC_VERSION=2.35-r0
 
 RUN apk update \
 	&& apk --no-cache add wget ca-certificates tzdata \
