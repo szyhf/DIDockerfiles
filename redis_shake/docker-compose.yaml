@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  shake:
+    image: szyhf/redis_shake:latest
+    network_mode: host
+    volumes:
+      - "${PWD}/shake:/root/redis-shake/conf:ro"
+    command:
+      # redis-shake <config file> <filter file>
+      - ./conf/scan.toml
+      - ./conf/to_db.lua
