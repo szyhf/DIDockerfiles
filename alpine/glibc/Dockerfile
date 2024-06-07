@@ -13,8 +13,8 @@ RUN apk update \
 	&& wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub \
 	&& wget -q https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-${GLIBC_VERSION}.apk \
 	&& wget -q https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-bin-${GLIBC_VERSION}.apk \
- 	&& apk --no-cache add glibc-${GLIBC_VERSION}.apk \
-	&& apk --no-cache add glibc-bin-${GLIBC_VERSION}.apk \
+ 	&& apk --no-cache --force-overwrite add glibc-${GLIBC_VERSION}.apk \
+	&& apk --no-cache --force-overwrite add glibc-bin-${GLIBC_VERSION}.apk \
 	&& apk del wget tzdata \
 	&& rm -rf /glibc-${GLIBC_VERSION}.apk \
 	&& rm -rf /glibc-bin-${GLIBC_VERSION}.apk
